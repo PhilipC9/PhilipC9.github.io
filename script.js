@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'EasyRDP', image: 'images/easyrdp/rdp2.png', link: 'index.html', description: 'Wrapper for windows remote desktop. Developed in C# WPF' },
         { title: 'Forcefeedback Wheel', image: 'images/ratt/ratt1.jpg', link: 'projects/forcefeedback.html', description: 'For car games with forcefeedback. Developed with Arduino C++' },
         { title: 'Bitcoin Ticker', image: 'images/btctick/btct.jpg', link: 'index.html', description: 'Bitcoin live price data. Developed with Arduino C++' },
-        { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
-        { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
-        { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
-        { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
     ];
 
     const projectsPerPage = 6;
