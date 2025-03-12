@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         { title: 'Trading Platform', image: 'images/Trading/trading.png', link: 'projects/trading.html', description: 'Indicators and trading robot. Developed in C++ with OpenGL' },
-        { title: 'Blockchain', image: 'images/blockchain/pc3.jpg', link: 'projects/blockchain.html', description: 'Crypto blockchain nodes.' },
-        { title: 'Antivirus', image: 'images/Defender.jpg', link: 'projects/antivirus.html', description: 'Detects malware with SHA-256. Developed in C#' },
-        { title: 'EasyRDP', image: 'images/easyrdp/rdp2.png', link: 'projects/easyrdp.html', description: 'Wrapper for windows remote desktop. Developed in C# WPF' },
+        { title: 'Blockchain', image: 'images/blockchain/pc3.jpg', link: 'index.html', description: 'Crypto blockchain nodes.' },
+        { title: 'Antivirus', image: 'images/Defender.jpg', link: 'index.html', description: 'Detects malware with SHA-256. Developed in C#' },
+        { title: 'EasyRDP', image: 'images/easyrdp/rdp2.png', link: 'index.html', description: 'Wrapper for windows remote desktop. Developed in C# WPF' },
         { title: 'Forcefeedback Wheel', image: 'images/ratt/ratt1.jpg', link: 'projects/forcefeedback.html', description: 'For car games with forcefeedback. Developed with Arduino C++' },
-        { title: 'Bitcoin Ticker', image: 'images/btctick/btct.jpg', link: 'projects/placeholder.html', description: 'Bitcoin live price data. Developed with Arduino C++' },
+        { title: 'Bitcoin Ticker', image: 'images/btctick/btct.jpg', link: 'index.html', description: 'Bitcoin live price data. Developed with Arduino C++' },
         { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
         { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
         { title: 'Project 3', image: 'images/project3.jpg', link: 'project3.html', description: 'Description.' },
