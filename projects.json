@@ -136,7 +136,7 @@
       {
         "id": "1748284094097v6ppjcm",
         "type": "text",
-        "content": "I had many PC's that I wanted to control over windows RDP but they did not have any sort of management system where I could store all connections. This meant that I had to make a text file with all the ip addresses for the pcs to connect to. So instead I decided to develop this project to improve the RDP experience, to store all RDP's in one place and with just a button click I could connect to any of my PC's. I programmed it in C# and designed it with WPF (XAML).",
+        "content": "I had many PCs that I wanted to control over windows RDP but they did not have any sort of management system where I could store all connections. This meant that I had to make a text file with all the ip addresses for the pcs to connect to. So instead I decided to develop this project to improve the RDP experience, to store all RDP's in one place and with just a button click I could connect to any of my PCs. I programmed it in C# and designed it with WPF (XAML).",
         "format": "p",
         "isBold": false
       },
@@ -172,7 +172,7 @@
       {
         "id": "1748301268410kicufyz",
         "type": "text",
-        "content": "A project where I ran 9 Mini PC's to host Ethereum crypto nodes, I did this to learn about blockchain technology and in the future I may create my own blockchain.",
+        "content": "A project where I ran 9 Mini PCs to host Ethereum crypto nodes, I did this to learn about blockchain technology and in the future I may create my own blockchain.",
         "format": "p",
         "isBold": false
       }
