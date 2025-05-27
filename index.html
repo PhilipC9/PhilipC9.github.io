@@ -725,7 +725,6 @@
 <body>
     <header>
         <nav class="container">
-            <!--Namn-->
             <a href="#" class="logo"></a>
             <ul class="nav-links">
                 <li><a href="#projects">Projects</a></li>
@@ -896,12 +895,26 @@
                 }
                 
                 const fetchedProjects = await response.json();
-
-                if (fetchedProjects.length === 0) {
-                    throw new Error('No projects found after attempting to load from file.');
-                }
                 
-                projects = fetchedProjects;
+                // Ensure images and detailedDescription content are correctly structured on import
+                projects = fetchedProjects.map(project => ({
+                    ...project,
+                    images: project.images ? project.images.map(img => {
+                        // If img is a string (old format), convert to object with default quality
+                        if (typeof img === 'string') {
+                            return { webpBase64: img, quality: 80 };
+                        }
+                        return img; // Already in new format
+                    }) : [],
+                    detailedDescription: project.detailedDescription ? project.detailedDescription.map(block => {
+                        if (block.type === 'image' && typeof block.content === 'string') {
+                            // If content is a string (old format), convert to object with default quality
+                            return { ...block, content: { webpBase64: block.content, quality: 80 } };
+                        }
+                        return block; // Already in new format or not an image block
+                    }) : []
+                }));
+
 
                 renderProjects();
                 
@@ -921,8 +934,8 @@
             grid.innerHTML = projects.map((project, index) => `
                 <div class="project-card" onclick="openProjectModal(${index})">
                     <div class="project-image">
-                        ${project.images && project.images.length > 0 
-                            ? `<img src="${project.images[0]}" alt="${project.title}" onerror="this.src=''; this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        ${project.images && project.images.length > 0 && project.images[0].webpBase64
+                            ? `<img src="${project.images[0].webpBase64}" alt="${project.title}" onerror="this.src=''; this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                <span style="display: none;">${project.emoji || '🚀'}</span>`
                             : `<span>${project.emoji || '🚀'}</span>`
                         }
@@ -988,7 +1001,8 @@
                         modalDescriptionContainer.appendChild(p);
                     } else if (block.type === 'image') {
                         const img = document.createElement('img');
-                        img.src = block.content;
+                        // Access webpBase64 from the content object
+                        img.src = block.content && block.content.webpBase64 ? block.content.webpBase64 : '';
                         img.alt = currentProject.title + ' image';
                         img.onerror = function() { this.style.display='none'; console.warn('Failed to load image:', block.content); };
                         modalDescriptionContainer.appendChild(img);
@@ -1024,7 +1038,8 @@
                 imgElement = document.createElement('img');
                 header.prepend(imgElement);
                 
-                imgElement.src = currentProject.images[currentImageIndex];
+                // Access webpBase64 from the image object
+                imgElement.src = currentProject.images[currentImageIndex].webpBase64;
                 imgElement.alt = currentProject.title + ' main image ' + (currentImageIndex + 1);
                 imgElement.style.display = 'block';
                 imgElement.onerror = function() {
