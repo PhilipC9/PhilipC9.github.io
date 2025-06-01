@@ -754,7 +754,7 @@
 
                 <div id="error-state" class="error-state" style="display: none;">
                     <h3>Unable to load projects</h3>
-                    <p>Please ensure 'projects.json' exists in the same directory as this HTML file and is correctly formatted. Also ensure you are serving the page via a local web server (e.g., Live Server).</p>
+                    <p>Project file not found.</p>
                 </div>
 
                 <div class="projects-grid" id="projects-grid" style="display: none;">
@@ -775,7 +775,7 @@
 
                             <!--
                             <p>I'm a dedicated full-stack developer with over 5 years of experience in building scalable and efficient web applications. My expertise spans both front-end frameworks like React and robust back-end systems using Node.js and Python. I thrive on solving complex problems and continuously learning new technologies to deliver high-quality solutions.</p>
-                            <p>Beyond coding, I enjoy contributing to open-source projects, participating in tech communities, and exploring new horizons in software development. I believe in writing clean, maintainable code and building products that provide exceptional user experiences.</p>
+                            <p>Beyond coding, I enjoy contributing to open-source projects, participating in tech communities, and working with software development. I believe in writing clean, maintainable code and building products that provide exceptional user experiences.</p>
                         -->
                         </div>
                         <div class="skills">
@@ -784,7 +784,7 @@
                             <div class="skill-item">Node.js</div>
                             <div class="skill-item">Python</div>
                             <div class="skill-item">TypeScript</div>
-                            <div class="skill-item">PostgreSQL</div>
+                            <div class="skill-item">SQL</div>
                             <div class="skill-item">C++</div>
                             <div class="skill-item">C#</div>
                             <div class="skill-item">Git</div>
@@ -896,22 +896,22 @@
                 
                 const fetchedProjects = await response.json();
                 
-                // Ensure images and detailedDescription content are correctly structured on import
+               
                 projects = fetchedProjects.map(project => ({
                     ...project,
                     images: project.images ? project.images.map(img => {
-                        // If img is a string (old format), convert to object with default quality
+                       
                         if (typeof img === 'string') {
                             return { webpBase64: img, quality: 80 };
                         }
-                        return img; // Already in new format
+                        return img; 
                     }) : [],
                     detailedDescription: project.detailedDescription ? project.detailedDescription.map(block => {
                         if (block.type === 'image' && typeof block.content === 'string') {
-                            // If content is a string (old format), convert to object with default quality
+                            
                             return { ...block, content: { webpBase64: block.content, quality: 80 } };
                         }
-                        return block; // Already in new format or not an image block
+                        return block; 
                     }) : []
                 }));
 
